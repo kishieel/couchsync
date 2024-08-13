@@ -12,11 +12,11 @@ type CreateOrUpdateDocumentArgs struct {
 	config          Config
 }
 
-func CreateOrUpdateDocument(args CreateOrUpdateDocumentArgs) {
-	currentDocument := FetchDocument(FetchDocumentArgs{args.databaseName, args.documentName, args.config})
+func createOrUpdateDocument(args CreateOrUpdateDocumentArgs) {
+	currentDocument := fetchDocument(FetchDocumentArgs{args.databaseName, args.documentName, args.config})
 
 	if currentDocument == nil {
-		err := CreateDocument(CreateDocumentArgs{args.databaseName, args.documentName, args.documentContent, args.config})
+		err := createDocument(CreateDocumentArgs{args.databaseName, args.documentName, args.documentContent, args.config})
 
 		if err != nil {
 			fmt.Printf("[✗] Document %s could not be created for %s.\n", args.documentName, args.databaseName)
@@ -36,7 +36,7 @@ func CreateOrUpdateDocument(args CreateOrUpdateDocumentArgs) {
 	documentChanged := string(currentDocumentBytes) != string(newestDocumentBytes)
 
 	if documentChanged {
-		err := UpdateDocument(UpdateDocumentArgs{args.databaseName, args.documentName, currentDocumentRevision, args.documentContent, args.config})
+		err := updateDocument(UpdateDocumentArgs{args.databaseName, args.documentName, currentDocumentRevision, args.documentContent, args.config})
 
 		if err != nil {
 			fmt.Printf("[✗] Document %s could not be updated for %s.\n", args.documentName, args.databaseName)

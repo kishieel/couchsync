@@ -16,7 +16,7 @@ type UpdateDocumentArgs struct {
 	config           Config
 }
 
-func UpdateDocument(args UpdateDocumentArgs) error {
+func updateDocument(args UpdateDocumentArgs) error {
 	client := &http.Client{}
 	req, _ := http.NewRequest("PUT", fmt.Sprintf("%s/%s/%s", args.config.CouchdbAddress, args.databaseName, args.documentName), nil)
 	req.SetBasicAuth(args.config.CouchdbUsername, args.config.CouchdbPassword)

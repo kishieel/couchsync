@@ -37,7 +37,7 @@ func SynchronizeDocuments(config Config) {
 			documentContent := buildDocument(BuildDocumentArgs{documentPath})
 			documentContent["_id"] = documentName
 
-			CreateOrUpdateDocument(CreateOrUpdateDocumentArgs{databaseName, documentName, documentContent, config})
+			createOrUpdateDocument(CreateOrUpdateDocumentArgs{databaseName, documentName, documentContent, config})
 		}
 	}
 }

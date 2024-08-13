@@ -12,7 +12,7 @@ type FetchDocumentArgs struct {
 	config       Config
 }
 
-func FetchDocument(args FetchDocumentArgs) map[string]any {
+func fetchDocument(args FetchDocumentArgs) map[string]any {
 	client := &http.Client{}
 	req, _ := http.NewRequest("GET", fmt.Sprintf("%s/%s/%s", args.config.CouchdbAddress, args.databaseName, args.documentName), nil)
 	req.SetBasicAuth(args.config.CouchdbUsername, args.config.CouchdbPassword)

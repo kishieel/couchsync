@@ -15,7 +15,7 @@ type CreateDocumentArgs struct {
 	config          Config
 }
 
-func CreateDocument(args CreateDocumentArgs) error {
+func createDocument(args CreateDocumentArgs) error {
 	client := &http.Client{}
 	req, _ := http.NewRequest("POST", fmt.Sprintf("%s/%s", args.config.CouchdbAddress, args.databaseName), nil)
 	req.SetBasicAuth(args.config.CouchdbUsername, args.config.CouchdbPassword)
