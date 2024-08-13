@@ -5,6 +5,7 @@ clean:
 
 build:
 	go build -o ./bin/couchsync ./cmd/couchsync
+	chmod +x ./bin/couchsync
 
 couchdb-start:
 	docker run -d -p 5984:5984 --rm --name couchdb -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=admin bitnami/couchdb:3.3.3
