@@ -13,7 +13,7 @@ func main() {
 
 	rootCmd.Use = "couchsync"
 	rootCmd.Short = "CouchSync is a CLI utility to manage CouchDB documents based on a file system directory structure."
-	rootCmd.Version = "1.0.0"
+	rootCmd.Version = "1.0.1"
 
 	var examples = []string{
 		"couchsync -a http://localhost:5984 -s /path/to/directory -u admin -p admin",
