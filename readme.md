@@ -7,7 +7,7 @@ Managing CouchDB design documents can be a tedious task. JavaScript functions mi
 To install CouchSync you can use the following command.
 
 ```shell
-wget -nv https://github.com/kishieel/couchsync/raw/master/install.sh -O - | sudo bash
+wget -q https://github.com/kishieel/couchsync/raw/master/install.sh -O - | sudo bash
 ```
 
 ### Usage

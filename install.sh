@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 
-wget -nv https://github.com/kishieel/couchsync/raw/master/bin/couchsync -O /usr/local/bin/couchsync
+wget -q https://github.com/kishieel/couchsync/raw/master/bin/couchsync -O /usr/local/bin/couchsync
 chmod +x /usr/local/bin/couchsync
+
+echo "couchsync installed successfully!"
