@@ -13,6 +13,7 @@ func main() {
 
 	rootCmd.Use = "couchsync"
 	rootCmd.Short = "CouchSync is a CLI utility to manage CouchDB documents based on a file system directory structure."
+	rootCmd.Version = "1.0.0"
 
 	var examples = []string{
 		"couchsync -a http://localhost:5984 -s /path/to/directory -u admin -p admin",
@@ -21,10 +22,10 @@ func main() {
 	}
 	rootCmd.Example = fmt.Sprintf("  %s\n", examples[0])
 
-	rootCmd.Flags().StringVarP(&config.CouchdbAddress, "couchdbAddress", "a", "", "couchdbAddress of the CouchDB instance.")
-	rootCmd.Flags().StringVarP(&config.CouchdbUsername, "couchdbUsername", "u", "", "couchdbUsername to use when connecting to the host.")
-	rootCmd.Flags().StringVarP(&config.CouchdbPassword, "couchdbPassword", "p", "", "couchdbPassword to use when connecting to the host.")
-	rootCmd.Flags().StringVarP(&config.DocumentSource, "documentSource", "s", "", "Path to the directory containing the documents structure.")
+	rootCmd.Flags().StringVarP(&config.CouchdbAddress, "address", "a", "", "address of the CouchDB instance.")
+	rootCmd.Flags().StringVarP(&config.CouchdbUsername, "username", "u", "", "username to use when connecting to the host.")
+	rootCmd.Flags().StringVarP(&config.CouchdbPassword, "password", "p", "", "password to use when connecting to the host.")
+	rootCmd.Flags().StringVarP(&config.DocumentSource, "source", "s", "", "path to the directory containing the documents structure.")
 
 	rootCmd.PreRun = func(cmd *cobra.Command, args []string) {
 		couchsync.ValidateConfig(config)
